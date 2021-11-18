@@ -1,7 +1,6 @@
 #%%%
 import requests
 import json
-#from PIL import Image
 
 save = True
 url = "http://www.JailBase.com/api/1/search/"
@@ -20,13 +19,11 @@ else:
 
 date = str(response.json()["records"][0]["book_date"])
 date = date.replace("-", "/")
-print(date)
 #%%%
 
 url = "https://www.metaweather.com/api/location/2487956/" + date
-print(url)
 response = requests.get(url)
-weather = response.json()
+weather = response.json()[0]
 print(weather)
 
 
